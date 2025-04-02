@@ -1,0 +1,101 @@
+#page_careers {
+  padding-bottom: 400px;
+
+  #careers {
+    .heading {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-top: 100px;
+      align-items: center;
+      .hg {
+        width: 100%;
+        width: max-content;
+
+        font-size: 5rem;
+        line-height: 90%;
+      }
+      p {
+        width: 100%;
+        font-size: 1.2rem;
+      }
+
+      .pos {
+        margin-top: 4em;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3em;
+        width: 100%;
+        .l {
+          width: 20%;
+          height: 3px;
+          background: white;
+        }
+        p {
+          font-size: 1.4rem;
+
+          font-weight: bolder;
+          opacity: 1;
+          width: max-content;
+        }
+      }
+    }
+    .clist {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3em;
+      padding: 2em 0;
+      .c {
+        border: 2px solid var(--purp);
+        aspect-ratio: 1 / 1;
+        border-radius: 0 0.5em 0 0.5em;
+        padding: 2em;
+        text-align: left;
+
+        transition: all 500ms ease;
+        background: url("/bg/dots.png") #1d19192d;
+        background-size: 30px;
+        position: relative;
+
+        &:nth-child(odd) {
+          border-color: var(--pink);
+          &::before {
+            background: var(--pink);
+          }
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          right: 0%;
+          bottom: 0%;
+          width: 30px;
+          height: 30px;
+          background: var(--purp);
+          clip-path: polygon(67% 61%, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        &:hover {
+          outline: 1px solid white;
+          outline-offset: 10px;
+        }
+        h2 {
+          font-size: 2rem;
+          line-height: 90%;
+        }
+        p {
+          margin-top: 2em;
+          opacity: 0.6;
+          span {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--pink);
+          }
+        }
+      }
+    }
+  }
+}
