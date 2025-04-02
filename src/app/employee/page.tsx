@@ -56,19 +56,19 @@ export default function page({}: Props) {
   useEffect(() => {
     const vfx = new VFX();
     if (loginRef.current) {
-      vfx.add(loginRef.current, { shader: "glitch" });
+      vfx.add(loginRef.current, { shader: "glitch", overflow: 300 });
     }
   }, [loginRef]);
 
   useEffect(() => {
     if (gb2.current) {
       const vfx = new VFX();
-      vfx.add(gb2.current, { shader: "glitch" });
+      vfx.add(gb2.current, { shader: "glitch", overflow: 300 });
     }
     if (gb1.current) {
       const vfx = new VFX();
       console.log("hey");
-      vfx.add(gb1.current, { shader: "glitch", overflow: 100 });
+      vfx.add(gb1.current, { shader: "glitch", overflow: 300 });
     }
   }, [login]);
   return (
