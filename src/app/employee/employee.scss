@@ -1,3 +1,4 @@
+@import "mixins";
 #page_employee {
   padding-top: 100px;
   #login {
@@ -15,6 +16,10 @@
       flex-direction: column;
       align-items: center;
 
+      @include mq(1024) {
+        width: 90%;
+        margin: 0 auto;
+      }
       &::before {
         content: "";
         position: absolute;
@@ -31,6 +36,12 @@
       .hg {
         width: 100%;
         text-align: center;
+        line-height: 80%;
+        @include mq(420) {
+          white-space: initial;
+          min-width: initial;
+          font-size: 2rem;
+        }
       }
 
       .warn {
@@ -46,6 +57,13 @@
         margin: 1em 0;
         font-size: 1.8rem;
         font-family: var(--fontM);
+
+        @include mq(550) {
+          width: 80%;
+        }
+        @include mq(420) {
+          font-size: 1.5rem;
+        }
         &::placeholder {
           opacity: 0.5;
         }
@@ -57,10 +75,48 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 3em;
+    @include mq(1024) {
+      gap: 2em;
+
+      display: flex;
+      flex-direction: column;
+    }
     .nav {
       display: flex;
       flex-direction: column;
       gap: 1em;
+
+      @include mq(1024) {
+        flex-direction: row;
+        gap: 1em;
+
+        .btn-nav {
+          .text {
+            display: none;
+          }
+          svg {
+            display: block;
+          }
+        }
+      }
+
+      @include mq(550) {
+        justify-content: center;
+        gap: 0.5em;
+        .btn-nav {
+          padding: 0.15em 0.6em;
+        }
+        background: black;
+        padding: 1em 0;
+        border-radius: 2em;
+      }
+
+      .text {
+        display: initial;
+      }
+      svg {
+        display: none;
+      }
     }
 
     #dashboard {
@@ -78,6 +134,10 @@
 
       border-radius: 0 0.5em 0 0.5em;
       min-height: 500px;
+
+      @include mq(550) {
+        padding: 1em;
+      }
       .h {
         display: flex;
         align-items: center;
@@ -88,6 +148,11 @@
         }
         h2 {
           font-size: 2.5rem;
+        }
+        @include mq(420) {
+          // align-items: center;
+          justify-content: center;
+          margin: 1em 0;
         }
       }
 
@@ -101,9 +166,55 @@
           padding: 0.75em 1em;
           align-items: center;
           height: 50px;
+          position: relative;
+          @include mq(550) {
+            grid-template-columns: 1fr 2fr;
+          }
+
+          @include mq(1280) {
+            height: auto;
+            min-height: 70px;
+            gap: 0.5em;
+          }
+          @include mq(550) {
+            .sub {
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              max-width: 100%;
+            }
+          }
           .from,
           .status {
             text-align: center;
+          }
+
+          .from {
+            @include mq(1280) {
+              font-size: 1rem;
+            }
+
+            @include mq(420) {
+              font-size: 0.8rem;
+            }
+          }
+
+          .status {
+            font-weight: bold;
+            letter-spacing: -1px;
+
+            @include mq(550) {
+              position: absolute;
+              bottom: 80%;
+              right: 5%;
+              background: black;
+              border: 1em;
+              padding: 0.25em 1em;
+              opacity: 1;
+              border: 2px solid var(--pink);
+              color: var(--pink);
+              border-radius: 0 1em;
+            }
           }
           background: #bc52ea3b;
           border: 2px solid var(--pink);
@@ -148,16 +259,33 @@
         padding: 2em;
         max-width: 90%;
         margin: 0 auto;
+        @include mq(768) {
+          padding: 1em;
+        }
         .field {
           display: grid;
           grid-template-columns: 100px 1fr;
 
           align-items: center;
+
+          @include mq(768) {
+            // gap: 1em;
+            margin: 1em 0;
+          }
+          @include mq(550) {
+            align-items: flex-start;
+          }
           h3 {
             font-size: 1.4rem;
+            @include mq(768) {
+              font-size: 1.1rem;
+            }
           }
           p {
             font-size: 1.3rem;
+            @include mq(768) {
+              font-size: 1rem;
+            }
           }
         }
       }
@@ -167,9 +295,21 @@
         padding: 2em 8em;
         letter-spacing: 2px;
 
+        @include mq(768) {
+          padding: 3em 3em;
+        }
+
+        @include mq(420) {
+          padding: 1em;
+          max-height: 300px;
+          overflow-y: scroll;
+        }
         p {
           font-size: 1.4rem;
           margin-bottom: 2em;
+          @include mq(768) {
+            font-size: 1rem;
+          }
         }
       }
 
@@ -177,6 +317,17 @@
         display: flex;
         justify-content: space-between;
         padding: 2em;
+
+        @include mq(420) {
+          padding: 1em;
+        }
+
+        @include mq(550) {
+          flex-wrap: wrap;
+          flex-direction: column-reverse;
+          align-items: center;
+          gap: 3em;
+        }
         .l {
           display: flex;
           gap: 2em;
@@ -195,6 +346,10 @@
             flex-direction: column;
             width: 200px;
             gap: 0.5em;
+
+            @include mq(420) {
+              width: 100%;
+            }
 
             .at-b {
               img {
@@ -243,6 +398,10 @@
         .r {
           display: flex;
           flex-direction: column;
+          @include mq(550) {
+            flex-direction: row;
+            flex-wrap: wrap;
+          }
           gap: 1em;
           .btn-l {
             background: var(--pink);
@@ -252,6 +411,10 @@
             font-size: 2rem;
             opacity: 0.2;
             cursor: not-allowed;
+
+            @include mq(768) {
+              font-size: 1.5rem;
+            }
           }
         }
       }
@@ -271,6 +434,10 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+
+    @include mq(550) {
+      justify-content: flex-start;
+    }
     .mimg {
       width: 90vw;
       height: 70vh;
@@ -289,16 +456,43 @@
     }
     transition: all 1500ms ease;
     .title {
+      text-align: center;
       margin-top: 1em;
+      margin-bottom: 0.25em;
     }
 
     .desc {
       margin-bottom: 2em;
+      text-align: center;
+    }
+
+    .info {
+      max-width: 90%;
+      margin: 0 auto;
+    }
+    @include mq(550) {
+      .title,
+      .desc {
+        text-align: left;
+      }
+    }
+
+    @include mq(420) {
+      .title {
+        font-size: 1.1rem;
+      }
+      .desc {
+        font-size: 1rem;
+      }
+      .info {
+        font-size: 0.8rem;
+      }
     }
 
     .close {
       font-weight: bold;
       animation: blink 1s infinite linear alternate-reverse;
+      text-align: center;
       @keyframes blink {
         from {
           opacity: 1;

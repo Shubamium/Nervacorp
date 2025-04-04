@@ -1,8 +1,12 @@
+@import "mixins";
 #programs {
   .confine {
     max-width: 800px;
 
     margin-bottom: 400px;
+    @include mq(1024) {
+      max-width: 90%;
+    }
     .plist {
       display: flex;
       flex-direction: column;
@@ -19,6 +23,10 @@
         gap: 2em;
         position: relative;
 
+        @include mq(550) {
+          display: flex;
+          flex-direction: column;
+        }
         &::before {
           content: "";
           position: absolute;

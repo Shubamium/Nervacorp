@@ -1,3 +1,5 @@
+@import "mixins";
+
 #page_careers {
   padding-bottom: 400px;
 
@@ -14,6 +16,18 @@
 
         font-size: 5rem;
         line-height: 90%;
+
+        @include mq(1024) {
+          font-size: 4rem;
+        }
+        @include mq(768) {
+          white-space: initial;
+          width: auto;
+          margin-bottom: 0.2em;
+        }
+        @include mq(420) {
+          font-size: 3.2rem;
+        }
       }
       p {
         width: 100%;
@@ -40,6 +54,12 @@
           opacity: 1;
           width: max-content;
         }
+
+        @include mq(550) {
+          .l {
+            display: none;
+          }
+        }
       }
     }
     .clist {
@@ -47,6 +67,17 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 3em;
       padding: 2em 0;
+      @include mq(1280) {
+        gap: 1em;
+      }
+
+      @include mq(1024) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @include mq(420) {
+        grid-template-columns: 1fr;
+      }
       .c {
         border: 2px solid var(--purp);
         aspect-ratio: 1 / 1;
@@ -58,6 +89,13 @@
         background: url("/bg/dots.png") #1d19192d;
         background-size: 30px;
         position: relative;
+
+        @include mq(420) {
+          aspect-ratio: initial;
+        }
+        @include mq(550) {
+          padding: 1em;
+        }
 
         &:nth-child(odd) {
           border-color: var(--pink);
@@ -85,10 +123,20 @@
         h2 {
           font-size: 2rem;
           line-height: 90%;
+          @include mq(550) {
+            font-size: 1.2rem;
+          }
         }
         p {
           margin-top: 2em;
           opacity: 0.6;
+          @include mq(550) {
+            font-size: 1rem;
+          }
+
+          @include mq(420) {
+            margin-top: 1em;
+          }
           span {
             font-size: 0.9rem;
             font-weight: bold;

@@ -1,3 +1,4 @@
+@import "mixins";
 #about {
   position: relative;
   .bg-text {
@@ -17,26 +18,55 @@
         top: 30%;
       }
     }
+    @include mq(1024) {
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 1;
+      filter: invert(-100%);
+    }
   }
   .confine {
     display: grid;
     grid-template-columns: 1fr 0.8fr 1fr;
+
+    @include mq(1024) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 150px 1fr 1fr;
+      grid-template-areas:
+        "c"
+        "l"
+        "r";
+      gap: 0;
+      padding-top: 50px;
+    }
     gap: 8em;
     padding: 200px 0;
 
     .l {
+      @include mq(1024) {
+        grid-area: l;
+      }
       .hg {
         font-size: 4rem;
       }
     }
 
     .c {
+      @include mq(1024) {
+        grid-area: c;
+      }
       img {
         max-width: 80%;
         object-fit: contain;
         object-position: center;
         height: 400px;
         filter: drop-shadow(0px 0px 5px var(--purp));
+
+        @include mq(1024) {
+          height: auto;
+          max-height: 100%;
+        }
       }
       &::before {
         content: "";
@@ -76,8 +106,14 @@
         }
       }
       position: relative;
+      @include mq(1024) {
+        margin-bottom: 1em;
+      }
     }
     .r {
+      @include mq(1024) {
+        grid-area: r;
+      }
       align-self: flex-end;
     }
   }

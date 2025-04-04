@@ -1,17 +1,17 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import "./employee.scss";
-import { FaInbox } from "react-icons/fa";
+import { FaHome, FaInbox } from "react-icons/fa";
 import {
   CgArrowLongLeft,
   CgArrowLongRight,
   CgAttachment,
   CgInbox,
+  CgMail,
 } from "react-icons/cg";
-import { GiReturnArrow } from "react-icons/gi";
-import { IoArrowBackCircle } from "react-icons/io5";
 import { MdOutlineKeyboardReturn } from "react-icons/md";
 import { VFX } from "@vfx-js/core";
+import { BsMailbox } from "react-icons/bs";
 type Props = {};
 
 const pass = "sinyin";
@@ -82,7 +82,8 @@ export default function page({}: Props) {
                 changeNav("dashboard");
               }}
             >
-              DASHBOARD
+              <span className="text">DASHBOARD</span>
+              <FaHome />
             </button>
             <button
               className="btn btn-nav"
@@ -90,13 +91,14 @@ export default function page({}: Props) {
                 changeNav("email");
               }}
             >
-              EMAIL
+              <span className="text">EMAIL</span>
+              <CgMail />
             </button>
             <button className="btn btn-nav glitch " ref={gb1}>
-              _̶͔̘͎͒́͝+̵̺̀̔͌͜_̸̜̭͛≠͈̻̬͐_̵͍̾̏+̴̗̲̞̒͝_̵̤̃͝+̴̤̈́̕
+              <span className="text">_̶͔̘͎͒́͝+̵̺̀̔͌͜_̸̜̭͛≠͈̻̬͐_̵͍̾̏</span>_̵̤̃͝+̴̤̈́̕
             </button>
             <button className="btn btn-nav glitch" ref={gb2}>
-              -̶̥̔̈;̶̛̻͑'̸̬̗̓͘;̸͔̤̓-̴̝̮͛̿;̶̻̽̈́-̴̜̺̀̕;̴̩̓'̶̬̖̿-̴̖̈́̚;̷̳̊͘
+              <span className="text">-̶̥̔̈;̶̛̻͑'̸̬̗̓͘;̸͔̤̓-̴̝̮͛̿;̶̻̽̈́-̴̜̺̀̕</span>;̴̩̓'̶̬̖̿-̴̖̈́̚;̷̳̊͘
             </button>
           </div>
           <div className="content">{pl[active]}</div>
@@ -121,15 +123,17 @@ export default function page({}: Props) {
         }}
       >
         <img src="/g/attachment.png" alt="" className="mimg" />
-        <h2 className="title">
-          A group photo taken at a Sunflower Orphanage fundraiser.
-        </h2>
-        <p className="desc">
-          This image remains within internal archives and is not authorized for
-          external use. Clearance breach will result in suspension of
-          privileges.
-        </p>
-        <p className="close">PRESS ANYWHERE TO CLOSE</p>
+        <div className="info">
+          <h2 className="title">
+            A group photo taken at a Sunflower Orphanage fundraiser.
+          </h2>
+          <p className="desc">
+            This image remains within internal archives and is not authorized
+            for external use. Clearance breach will result in suspension of
+            privileges.
+          </p>
+          <p className="close">PRESS ANYWHERE TO CLOSE</p>
+        </div>
       </div>
 
       <div className="other">
