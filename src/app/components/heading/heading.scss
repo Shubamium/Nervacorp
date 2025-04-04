@@ -1,3 +1,4 @@
+@import "mixins";
 #heading {
   position: relative;
   z-index: 1;
@@ -17,6 +18,11 @@
         animation-duration: 40s;
       }
     }
+    @include mq(768) {
+      height: 120px;
+      bottom: 100%;
+      left: -30%;
+    }
   }
   @keyframes line {
     from {
@@ -32,6 +38,11 @@
     bottom: 50%;
     height: 300px;
     z-index: -2;
+    @include mq(768) {
+      height: 120px;
+      bottom: 90%;
+      right: -40%;
+    }
     path {
       animation: line 20s infinite linear;
       stroke-dasharray: 200 40 300 400;
@@ -49,12 +60,25 @@
     background: linear-gradient(to top, var(--pink), var(--purp));
     flex-direction: column;
     margin-top: 250px;
+
+    @include mq(768) {
+      margin-top: 100px;
+    }
     .logo {
       width: 1200px;
       height: 250px;
       object-fit: contain;
       padding: 2em 0;
       filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.774));
+
+      @include mq(1024) {
+        height: 190px;
+      }
+      @include mq(550) {
+        width: 100%;
+        height: auto;
+        max-width: 80%;
+      }
     }
     box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.67);
   }
@@ -70,12 +94,23 @@
       display: flex;
       justify-content: center;
       gap: 1em;
+      @include mq(1024) {
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+        margin: 1em auto;
+        padding: 0 2em;
+        min-width: initial;
+      }
     }
     .line {
       background: var(--pink);
       border-radius: 2em;
       height: 3px;
       width: 100%;
+      @include mq(1024) {
+        display: none;
+      }
     }
   }
 }
